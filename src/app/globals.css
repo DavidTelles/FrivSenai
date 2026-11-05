@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-paper: #f6f3ea;
+  --color-card: #fffdf7;
+  --color-ink: #17151f;
+  --color-muted: #5f5b6b;
+  --color-line: #17151f;
+  --color-brand: #e8381f;
+  --color-brand-dark: #bd2610;
+  --color-sun: #ffc61a;
+  --color-sky: #2b5cff;
+  --color-mint: #12b886;
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display-face);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.tile {
+  border: 2px solid var(--color-line);
+  border-radius: 14px;
+  background: var(--color-card);
+  box-shadow: 4px 4px 0 var(--color-line);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 2.5rem;
+  padding: 0.4rem 1rem;
+  border: 2px solid var(--color-line);
+  border-radius: 10px;
+  background: var(--color-card);
+  font-weight: 700;
+  font-size: 0.875rem;
+  box-shadow: 2px 2px 0 var(--color-line);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  cursor: pointer;
+}
+.btn:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--color-line);
+}
+.btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--color-line);
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--color-brand);
+  color: #fff;
+}
+.btn-sun {
+  background: var(--color-sun);
+}
+
+.field {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.8rem;
+  border: 2px solid var(--color-line);
+  border-radius: 10px;
+  background: #fff;
+}
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid var(--color-sky);
+  outline-offset: 2px;
+}
+
+.game-card {
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.game-card:hover {
+  transform: translate(-3px, -3px) rotate(-0.4deg);
+  box-shadow: 7px 7px 0 var(--color-line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-card,
+  .btn {
+    transition: none;
+  }
+}
